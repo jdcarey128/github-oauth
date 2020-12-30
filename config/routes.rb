@@ -5,4 +5,8 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create' 
   get '/dashboard', to: 'dashboard#show'
+
+  namespace :dashboard do 
+    get '/repos', to: 'repos#index', as: 'repos'
+  end
 end

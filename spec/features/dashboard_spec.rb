@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Dashboard' do 
   describe 'as a logged in user, when I visit my dashboard' do 
-    it 'I see buttons to my public and private repos' do 
+    before :each do 
       data = 
         {
           "provider"=>"github",
@@ -16,12 +16,26 @@ RSpec.feature 'Dashboard' do
         }
       @user = User.from_omniauth(data)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-      
+    end
+
+    it 'I see buttons to my public and private repos' do 
       visit dashboard_path
       
       expect(page).to have_content("Welcome #{@user.name}")
       expect(page).to have_button('My Public Repos')
       expect(page).to have_button('My Private Repos')
+    end
+
+    it 'I see my public repos when I click \'My Public Repos\'' do 
+      visit dashboard_path
+
+      click_button 'My Public Repos'
+
+      expect(page).to have_content('rails-enginge')
+    end
+
+    it 'I see my private repos when I click \'My Private Repos\'' do 
+
     end
   end
 
