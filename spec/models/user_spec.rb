@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :provider }
     it { should validate_presence_of :uid }
     it { should validate_presence_of :name }
+    it { should validate_presence_of :token }
     # it { should validate_uniqueness_of :uid }
   end
 
@@ -22,7 +23,7 @@ RSpec.describe User, type: :model do
             "name"=>"Joshua Carey",
             "image"=>"https://avatars3.githubusercontent.com/u/59512644?v=4",
             "urls"=>{"GitHub"=>"https://github.com/jdcarey128", "Blog"=>""}},
-          "credentials"=>{"token"=>"924134ad8b55953bea241a5bba4b9a932bea9d51", "expires"=>false},
+          "credentials"=>{"token"=>"DATA", "expires"=>false},
           "extra"=>
            {
              "raw_info"=>
