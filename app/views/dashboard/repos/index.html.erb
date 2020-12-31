@@ -1,0 +1,10 @@
+<h3><%= @type.capitalize %> Repositories</h3>
+<section>
+  <ul>
+    <% @repos.each do |repo| %>
+      <div class='repo' id='repo-<%= repo.id %>'>
+        <li><%= link_to repo.name, repo.html_url %></li>
+      </div>
+    <% end %>
+  </ul>
+</section>

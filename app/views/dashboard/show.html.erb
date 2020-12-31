@@ -1,3 +1,3 @@
 <h2>Welcome <%= current_user.name %></h2>
-<%= button_to 'My Public Repos', dashboard_repos_path, method: :get %>
-<%= button_to 'My Private Repos' %>
+<%= button_to 'My Public Repos', dashboard_repos_path, params: {type: 'public'}, method: :get %>
+<%= button_to 'My Private Repos', dashboard_repos_path, params: {type: 'private'}, method: :get %>
