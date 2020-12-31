@@ -1,5 +1,4 @@
-class Dashboard::ReposFacade 
-
+class ReposFacade 
   
   def self.get_repos(current_user, type)
     json = RepoService.get_repos(current_user, type)

@@ -1,5 +1,4 @@
-class Dashboard::RepoService 
-
+class RepoService 
   
   def self.get_repos(current_user, type)
     response = Faraday.get('https://api.github.com/user/repos') do |req|

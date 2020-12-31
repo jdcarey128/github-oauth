@@ -7,11 +7,11 @@ class Repo
               :updated_at 
 
   def initialize(json)
-    @id = json[:id]    
-    @name = json[:name]    
-    @private = json[:private]    
-    @html_url = json[:html_url]    
-    @created_at = json[:created_at]    
-    @updated_at = json[:updated_at]    
+    @id = json[:id]
+    @name = json[:name]
+    @private = json[:private]
+    @html_url = json[:html_url]
+    @created_at = json[:created_at]
+    @updated_at = json[:updated_at]
   end
 end
