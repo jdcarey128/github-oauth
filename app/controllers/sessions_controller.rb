@@ -3,10 +3,11 @@ class SessionsController < ApplicationController
     begin
       @user = User.from_omniauth(request.env['omniauth.auth'])
       session[:user_id] = @user.id 
-      flas[:success] = "Welcome, #{@user.name}"
+      flash[:success] = "Welcome, #{@user.name}"
+      redirect_to dashboard_path
     rescue 
       flash[:warning] = "There was an error while trying to authenticate you..."
+      redirect_to root_path
     end
-    redirect_to dashboard_path
   end
 end
