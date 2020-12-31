@@ -44,11 +44,15 @@ group :development, :test do
   gem 'capybara'
   gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
   gem 'pry'
+  gem 'faraday'
 end
 
 group :test do 
   gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'simplecov'
+  gem 'webmock'
+  gem 'vcr' 
 end 
 
 group :development do
