@@ -12,7 +12,7 @@ RSpec.feature 'Dashboard' do
             "email"=>nil,
             "name"=>"Joshua Carey",
             "image"=>"https://avatars3.githubusercontent.com/u/59512644?v=4"},
-          "credentials"=>{"token"=>"DATA", "expires"=>false},
+          "credentials"=>{"token"=>ENV['USER_TOKEN'], "expires"=>false},
         }
       @user = User.from_omniauth(data)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
@@ -26,12 +26,16 @@ RSpec.feature 'Dashboard' do
       expect(page).to have_button('My Private Repos')
     end
 
-    it 'I see my public repos when I click \'My Public Repos\'' do 
+    it 'I see my public repos when I click \'My Public Repos\'', :vcr do 
       visit dashboard_path
 
       click_button 'My Public Repos'
+      
+      expect(page).to have_css('.repo', count:30)
 
-      expect(page).to have_content('rails-enginge')
+      within '#repo-292678789' do 
+        expect(page).to have_content('futbol')
+      end
     end
 
     it 'I see my private repos when I click \'My Private Repos\'' do 

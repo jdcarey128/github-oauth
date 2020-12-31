@@ -15,7 +15,7 @@ RSpec.describe 'Repos Facade' do
       }
     current_user = User.from_omniauth(data)
 
-    repos = Dashboard::ReposFacade.get_repos(current_user, 'public')
+    repos = ReposFacade.get_repos(current_user, 'public')
     
     expect(repos).to be_a(Array)
     first = repos[0]

@@ -17,7 +17,7 @@ RSpec.describe 'Repo Service' do
   end
 
   it 'can return json for a public repo', :vcr do 
-    repos = Dashboard::RepoService.get_repos(@current_user, 'public')
+    repos = RepoService.get_repos(@current_user, 'public')
 
     expect(repos).to be_a(Array)
     
@@ -41,7 +41,7 @@ RSpec.describe 'Repo Service' do
   end
 
   it 'can return json for a private repo', :vcr do 
-    repos = Dashboard::RepoService.get_repos(@current_user, 'private')
+    repos = RepoService.get_repos(@current_user, 'private')
 
     expect(repos).to be_a(Array)
     
